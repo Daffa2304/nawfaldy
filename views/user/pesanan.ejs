@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Pesanan</title>
+</head>
+<body>
+    <h1>Daftar Pesanan Anda</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nama Menu</th>
+                <th>Harga</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% pesanan.forEach(function(order) { %>
+                <tr>
+                    <td><%= order.menu_nama %></td>
+                    <td>Rp <%= order.harga %></td>
+                    <td><%= order.status %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

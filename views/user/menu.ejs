@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Kantin</title>
+</head>
+<body>
+    <h1>Menu Makanan</h1>
+    <ul>
+        <% menuItems.forEach(function(item) { %>
+            <li>
+                <img src="<%= item.gambar %>" alt="<%= item.nama %>" width="100">
+                <h3><%= item.nama %></h3>
+                <p>Harga: Rp <%= item.harga %></p>
+                <a href="/pesan/<%= item.id %>">Pesan</a>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

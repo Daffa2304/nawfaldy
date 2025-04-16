@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Admin</title>
+</head>
+<body>
+    <h1>Daftar Pesanan</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nama User</th>
+                <th>Nama Menu</th>
+                <th>Harga</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% pesanan.forEach(function(order) { %>
+                <tr>
+                    <td><%= order.username %></td>
+                    <td><%= order.menu_nama %></td>
+                    <td>Rp <%= order.harga %></td>
+                    <td>
+                        <form action="/admin/pesanan/update" method="POST">
+                            <input type="hidden" name="pesananId" value="<%= order.id %>">
+                            <select name="status">
+                                <option value="Pesanan Baru" <%= order.status === 'Pesanan Baru' ? 'selected' : '' %>>Pesanan Baru</option>
+                                <option value="Sedang Diproses" <%= order.status === 'Sedang Diproses' ? 'selected' : '' %>>Sedang Diproses</option>
+                                <option value="Siap Diambil" <%= order.status === 'Siap Diambil' ? 'selected' : '' %>>Siap Diambil</option>
+                                <option value="Selesai" <%= order.status === 'Selesai' ? 'selected' : '' %>>Selesai</option>
+                            </select>
+                            <button type="submit">Update Status</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
